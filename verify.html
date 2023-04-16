@@ -5,27 +5,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-     <link rel="stylesheet" href="verify.css">
+    <link rel="stylesheet" href="verify.css">
 </head>
 <body>
-    <div class = "form" style="text-align: center;">
-    <h2>Verify your account</h2> 
-    <p>We have emailed you the four digit otpp code, Enter the code to confirm your email address..</p>
-    <form action="" autocomplete="off">
-        <div class = "error-text">Error</div>
-        <div class ="fields-input">
-            <input type="number" name="otp1" class="otp_field" placeholder="0" min="0" max="9" required onpaste="false">
-            <input type="number" name="otp2" class="otp_field" placeholder="0" min="0" max="9" required onpaste="false">
-            <input type="number" name="otp3" class="otp_field" placeholder="0" min="0" max="9" required onpaste="false">
-            <input type="number" name="otp4" class="otp_field" placeholder="0" min="0" max="9" required onpaste="false">
+    <h1>OTP using JS</h1>
+    <div class="form">
+        <input type="email" id="email" placeholder="enter email">
+        <div class="otpverify">
+            <input type="text" id="otp_inp" placeholder="enter OTP">
+            <button class="btn" id="otp-btn">Verify</button>
         </div>
-        <div class="submit">
-            <input type="submit" value="verify now" class ="button">
-        </div>
-    </form>
-</div>
-
-<script src="verify.js"></script>
+        <button onclick="sendOTP()" class="btn">Send OTP</button>
+    </div>
+    
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script src="script.js"></script>
+    <script src="./verify.js"></script>
 </body>
 </html>

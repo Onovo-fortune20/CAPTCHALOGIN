@@ -14,12 +14,14 @@
             Registration Portal
         </div>
         <div class="form-input">
-            <label for="username">Username</label>
-            <input type="text" id="username">
+            <input type="email" id="email" placeholder="enter email">
         </div>
         <div class="form-input"> 
         <label for="password">Password</label>
-        <input type="password" id="password">
+        <input type="password" minlength="8" id="password">
+        <p id="strength"></p>
+        <label for="password">Confirm Password</label>
+        <input type="password" id="conpassword">
         <div class="strengthMeter"></div>
         <p id="message">Password is <span id="strength"></span></p>
     </div>
@@ -34,9 +36,11 @@
         </div>
     </div>
     <div class="form-input">
-        <button id="login-btn">Login</button>
+        <button onclick="sendOTP()" class="btn" id="login-btn">Login</button>
     </div>
 </div>
+<script src="https://smtpjs.com/v3/smtp.js"></script>
 <script src="script.js"></script>
+<script src="verify.js"></script>
 </body>
 </html>
