@@ -32,10 +32,19 @@
         let inputCaptchaValue = document.querySelector(".registration-form  .captcha input").value;
         if(inputCaptchaValue === captchaValue){
            swal("","You're human, Input OTP!", "success");
-           window.location.assign("verify.html")
+        //    window.location.assign("next.html")
         } else{
             swal("Invalid captcha");
         }
+
+        if (strengthBadge >= weak) {
+            alert("Password is strong enough! Logging you in...");
+        } else{
+            alert("Password is too weak. Please choose a stronger password.");
+            passwordInput.value = "";
+            return false;
+        }
+
    });
 //    var pass = document.getElementById("password");
 //  var msg = document.getElementById("message");
@@ -114,6 +123,46 @@
 
 
 
+        const showPassword = document. querySelector
+        ("#show-password");
+        const passwordField = document. querySelector
+        ("#password");
+        showPassword.addEventListener("click", function (){
+        this.classList.toggle("fa-eye-slash");
+        const type = passwordField.getAttribute("type")
+        ===
+        "password" ? "text" : "password"; passwordField.setAttribute("type", type);
+        })
+        
 
+        const firebaseApp = firebase.initializeApp({ 
+            apiKey: "AIzaSyANwbmgQlNHnhDHuxPGbD7ejl3mKfzg40g",
+            authDomain: "auth-form-840d9.firebaseapp.com",
+            projectId: "auth-form-840d9",
+            storageBucket: "auth-form-840d9.appspot.com",
+            messagingSenderId: "274693549512",
+            appId: "1:274693549512:web:69e0a650757ffaf9efe4fd"
+
+         });
+        const db = firebaseApp.firestore();
+        const auth = firebaseApp.auth();
+
+        const signUp=()=>{
+
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
+        console.log(email, password)
+            firebase.auth().createUserWithEmailAndPassword(email,password)
+                  .then((userCredential) => {
+    // Signed in 
+    var user = userCredential.user;
+    // ...
+  })
+  .catch((error) => {
+    var errorCode = error.code;
+    var errorMessage = error.message;
+    // ..
+  });
+        }
 
 })();

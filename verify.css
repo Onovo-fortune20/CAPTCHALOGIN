@@ -46,7 +46,15 @@ body {
     background-color: purple;
   }
   
-  /* .otpverify {
+   .otpverify {
     display: none;
-  } */
+  } 
+  .para{
+    font-family: "Montserrat", sans-serif;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 600;
+    margin: 20px 0px 30px;
+    color: #111;
+  }
   

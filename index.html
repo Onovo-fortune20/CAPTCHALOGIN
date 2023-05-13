@@ -7,21 +7,32 @@
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-</head>
+    <link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> 
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+
 <body>
+    <style>
+		body {
+			background-image: url("image/pexels-pixabay-236937.jpg");
+			/* background-size: cover; */
+			/* background-position: center; */
+		}
+	</style>
     <div class="registration-form">
         <div class="form-title">
             Registration Portal
         </div>
         <div class="form-input">
-            <input type="email" id="email" placeholder="enter email">
+            <input type="email" id="email" placeholder="Enter email">
         </div>
         <div class="form-input"> 
-        <label for="password">Password</label>
-        <input type="password" minlength="8" id="password">
+        <label for="password"></label>
+        <input type="password" minlength="8" id="password" placeholder="Enter password">
+        <i class="fa-solid fa-eye" id="show-password"></i>
+
         <p id="strength"></p>
-        <label for="password">Confirm Password</label>
-        <input type="password" id="conpassword">
         <div class="strengthMeter"></div>
         <p id="message">Password is <span id="strength"></span></p>
     </div>
@@ -36,7 +47,7 @@
         </div>
     </div>
     <div class="form-input">
-        <button onclick="sendOTP()" class="btn" id="login-btn">Login</button>
+        <button  class="btn" id="login-btn" onclick="signUp()">Login</button>
     </div>
 </div>
 <script src="https://smtpjs.com/v3/smtp.js"></script>
