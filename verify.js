@@ -50,3 +50,18 @@ function sendOTP(){
 
 
 }
+ 
+const signIn =()=>{
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+    firebaseApp.auth().signInWithEmailAndPassword(email,password)
+  .then((result) => {
+    // Signed in 
+    document.write("signed innn")
+    console.log(result)
+  })
+  .catch((error) => {
+    console.log(error.code);
+    console.log(error.message)
+  });
+}
