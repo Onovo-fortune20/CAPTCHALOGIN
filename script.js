@@ -36,54 +36,40 @@ function initCaptcha() {
 }
 initCaptcha();
 
-document
-  .querySelector(".registration-form #login-btn")
-  .addEventListener("click", function () {
-    let inputCaptchaValue = document.querySelector(
-      ".registration-form  .captcha input"
-    ).value;
-    if (inputCaptchaValue === captchaValue) {
-      swal("", "You're human, Input OTP!", "success");
-      //    window.location.assign("next.html")
+// document
+//   .querySelector(".registration-form #login-btn")
+//   .addEventListener("click", function () {
+//     let inputCaptchaValue = document.querySelector(
+//       ".registration-form  .captcha input"
+//     ).value;
+//     if (inputCaptchaValue === captchaValue) {
+//       swal("", "You're human, Input OTP!", "success");
+//          window.location.assign("next.html")
+//     } else {
+//       swal("Invalid captcha");
+//     }
+    
+    
+//   });
+document.querySelector(".registration-form #login-btn").addEventListener("click", function () {
+  let inputCaptchaValue = document.querySelector(".registration-form  .captcha input").value;
+  let passwordStrength = strengthBadge.textContent;
+  
+  if (inputCaptchaValue === captchaValue) {
+    if (passwordStrength === "Medium") {
+      swal( "Please choose a stronger password.", "error");
     } else {
-      swal("Invalid captcha");
+      swal("", "You're human, Input OTP!", "success");
+      window.location.assign("next.html");
     }
+  } else {
+    swal("Invalid captcha");
+  }
+});
 
-    // if (strengthBadge >= weak) {
-    //     alert("Password is strong enough! Logging you in...");
-    // } else{
-    //     alert("Password is too weak. Please choose a stronger password.");
-    //     passwordInput.value = "";
-    //     return false;
-    // }
-  });
-//    var pass = document.getElementById("password");
-//  var msg = document.getElementById("message");
-//  var str = document.getElementById("strength");
 
-//  pass.addEventListener('input', () =>{
-//     if(pass.value.length>0){
-//         msg.style.display = "block";
-//     }
-//     else{
-//         msg.style.display ="none"
-//     }
-//     if(pass.value.length < 4){
-//         str.innerHTML = "weak";
-//         pass.style.borderColor = "red";
-//         msg.style.color = "red";
-//     }
-//     else if(pass.value.length >= 4 && pass.value.length <8){
-//         str.innerHTML = "medium";
-//         pass.style.borderColor = "yellow";
-//         msg.style.color = "yellow";
-//     }
-//     else if (pass.value.length >= 8){
-//     str.innerHTML = "strong";
-//     pass.style.borderColor = "green";
-//     msg.style.color = "green";
-//     }
-//  })
+
+
 let timeout;
 
 // traversing the DOM and getting the input and span using their IDs
@@ -113,7 +99,7 @@ function StrengthChecker(PasswordParameter) {
     strengthBadge.textContent = "Medium";
   } else {
     strengthBadge.style.color = "red";
-    strengthBadge.textContent = "Weak";
+    strengthBadge.textContent = "Weak Password";
   }
 }
 
@@ -127,7 +113,7 @@ password.addEventListener("input", () => {
 
   timeout = setTimeout(() => StrengthChecker(password.value), 500);
 });
-
+//Function to display the Password
 const showPassword = document.querySelector("#show-password");
 const passwordField = document.querySelector("#password");
 showPassword.addEventListener("click", function () {
@@ -157,8 +143,8 @@ const signUp = () => {
     .createUserWithEmailAndPassword(email, password)
     .then((result) => {
       // Signed in
-      document.write("signed in")
-      console.log(result)
+      // document.write("signed in")
+      // console.log(result)
       // ...
     })
     .catch((error) => {

@@ -1,3 +1,4 @@
+
 function sendOTP(){
     const email = document.getElementById('email');
     const otpverify = document.getElementsByClassName('otpverify')[0];
@@ -34,10 +35,10 @@ function sendOTP(){
             otp_btn.addEventListener('click',()=>{
                 // now check whether sent email is valid
                 if(otp_inp.value == otp_val){
-                    alert("Email address verified...");
+                    swal("", "Email address verified...");
                 }
                 else{
-                    alert("Invalid OTP");
+                    swal("", "Invalid OTP");
                 }
             })
         }else{
