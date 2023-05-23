@@ -54,6 +54,9 @@ body {
    .otpverify {
     display: none;
   } 
+  #otbtn{
+    display: none;
+  }
   .para{
     font-family: "Montserrat", sans-serif;
     text-align: center;
@@ -62,4 +65,30 @@ body {
     margin: 20px 0px 30px;
     color: #111;
   }
+  .fa-eye{
+    position: absolute;
+    top: 28%;
+    right: 4%;
+    color: black
+}
+.show{
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 60px;
+  height: 100%;
+  background: #333;
+  border: 6px solid #222;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  }
   
+  .show ::before{
+      content: show;
+      font-size: 0.6em;
+      color: #fff;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+  }

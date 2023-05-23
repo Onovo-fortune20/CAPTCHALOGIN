@@ -12,7 +12,7 @@
 <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
 
-<body>
+<body onload="initCaptcha()">
     <style>
 		body {
 			background-image: url("image/pexels-pixabay-236937.jpg");
@@ -29,7 +29,7 @@
         </div>
         <div class="form-input"> 
         <label for="password"></label>
-        <input type="password" minlength="8" id="password" placeholder="Enter password">
+        <input oninput="Strengthmeter()" type="password" minlength="8" id="password" placeholder="Enter password">
         <i class="fa-solid fa-eye" id="show-password"></i>
 
         <p id="strength"></p>
@@ -41,7 +41,7 @@
         <div class="preview"></div>
         <div class="captcha-form">
             <input type="text" id="captcha-form" placeholder="Enter captcha text">
-            <button class="captcha-refresh">
+            <button class="captcha-refresh" onclick="initCaptcha()">
              <i class="fa fa-refresh"></i>
             </button>
         </div>
@@ -52,6 +52,11 @@
 </div>
 <script src="https://smtpjs.com/v3/smtp.js"></script>
 <script src="script.js"></script>
-<script src="verify.js"></script>
+<script defer src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+
+<script defer src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+<script defer src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+
+<script defer src="./init-firebase.js"></script>
 </body>
 </html>
