@@ -7,7 +7,7 @@ body {
     height: 100vh;
     background-color: lightgrey;
     font-family: "Roboto", sans-serif;
-    background-image: url(image/pexels-pixabay-236937.jpg);
+    background-image: url("image/pexels-karolina-grabowska-5632379.jpg");
     background-repeat: no-repeat;
     background-size: cover;
   }
